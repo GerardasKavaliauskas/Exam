@@ -13,7 +13,7 @@ import passport from '../passport';
 
 const JWT_SECRET: jwt.Secret = process.env.JWT_SECRET ?? '';
 
-// -- // -- // -- // -- //
+//
 
 async function login (req: Request, res: Response) {
   const validation = validationResult(req);
@@ -40,7 +40,6 @@ async function login (req: Request, res: Response) {
     return;
   };
 
-  //
 
   if (!await bcrypt.compare(reqData.password, user.password)) {
 
@@ -93,7 +92,7 @@ const isAuth = (req: Request, res: Response, next: NextFunction) => auth(req, re
 
 const isAdmin = (req: Request, res: Response, next: NextFunction) => auth(req, res, next, true);
 
-// -- // -- // -- // -- //
+//
 
 const validateLogin = () => {
   return [
@@ -111,8 +110,6 @@ const validateLogin = () => {
       .escape(),
   ];
 };
-
-// -- // -- // -- // -- //
 
 export default {
   login,

@@ -4,9 +4,8 @@ import bcrypt from 'bcrypt';
 import { Prisma } from '@prisma/client';
 import prismaDb from '../app';
 
-// -- // -- // -- // -- //
 
-// visų renginių gavimas
+// Visų renginių gavimas
 async function getAllEvents(_: Request, res: Response) {
     try {
         const events = await prismaDb.event.findMany({
@@ -21,7 +20,7 @@ async function getAllEvents(_: Request, res: Response) {
     }
 }
 
-// vartojo renginių gavimas
+// Vartotojo renginių gavimas
 async function getUserEvents(req: Request, res: Response) {
     try {
         const events = await prismaDb.event.findMany({
@@ -35,7 +34,7 @@ async function getUserEvents(req: Request, res: Response) {
     }
 }
 
-// vieno renginio gavimas
+// Vieno renginio gavimas
 async function getEvent(req: Request, res: Response) {
     try {
         const event = await prismaDb.event.findFirst(
@@ -56,7 +55,7 @@ async function getEvent(req: Request, res: Response) {
     }
 }
 
-// naujo renginio sukūrimas
+// Naujo renginio sukūrimas
 async function storeEvent(req: Request, res: Response) {
     try {
         const validation = validationResult(req);
@@ -98,7 +97,7 @@ async function storeEvent(req: Request, res: Response) {
     }
 }
 
-// renginio atnaujinimas
+// Renginio atnaujinimas
 async function updateEvent(req: Request, res: Response) {
     try {
         const event = await prismaDb.event.findFirst({
@@ -152,7 +151,7 @@ async function updateEvent(req: Request, res: Response) {
     }
 }
 
-// renginio ištrynimas
+// Renginio ištrynimas
 async function deleteEvent(req: Request, res: Response) {
     try {
         res.status(200).json({ message: 'Renginys ištrintas' });
@@ -161,7 +160,7 @@ async function deleteEvent(req: Request, res: Response) {
     }
 }
 
-// validacija
+// Validacija
 const validateStore = () => [
     body('name').trim().notEmpty().withMessage('Pavadinimas yra privalomas').escape(),
     body('date').notEmpty().withMessage('Data yra privaloma').isDate().withMessage('Neteisinga data'),
@@ -170,7 +169,7 @@ const validateStore = () => [
     body('img').trim().optional().isURL().withMessage('Neteisingas paveikslėlio URL')
 ];
 
-// atnaujinimo validacija
+// Atnaujinimo validacija
 const validateUpdate = () => [
     ...validateStore(),
     body('status').trim().isInt().withMessage('Būsenos numeris yra privalomas')

@@ -6,7 +6,7 @@ import bcrypt from 'bcrypt';
 import { Prisma } from '@prisma/client';
 import prismaDb from '../app';
 
-// -- // -- // -- // -- //
+// 
 
 async function getAllUsers(_: unknown, res: Response) {
   try {
@@ -57,7 +57,7 @@ async function deleteUser(req: Request, res: Response) {
       return;
     };
 
-    //
+    // 
 
     const result = await prismaDb.user.delete(
       {
@@ -189,7 +189,7 @@ async function storeUser(req: Request, res: Response) {
   };
 };
 
-// -- // -- // -- // -- //
+//
 
 const validateStore = () => [
   body('email')
@@ -222,8 +222,6 @@ const validateUpdate = () => [
     .withMessage('Būsenos numeris yra privalomas'),
   body('role').trim().escape().isInt().withMessage('Rolės numeris yra privalomas')
 ];
-
-// -- // -- // -- // -- //
 
 export default {
   getAllUsers,
