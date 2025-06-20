@@ -262,6 +262,16 @@ export function MeniuFront() {
             <ListItem className="flex items-center gap-2 py-2 pr-4">Skelbimai</ListItem>
           </Typography>
         </Link>
+        <Link to="/admin">
+          <Typography
+            as="a"
+            variant="small"
+            color="blue-gray"
+            className="font-medium"
+          >
+            <ListItem className="flex items-center gap-2 py-2 pr-4">Admin</ListItem>
+          </Typography>
+        </Link>
         <Typography
           as="a"
           variant="small"

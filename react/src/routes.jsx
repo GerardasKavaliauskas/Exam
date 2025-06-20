@@ -67,7 +67,7 @@ export const routes = [
         element: <Notifications />,
       },
       {
-        icon: <InformationCircleIcon {...icon} />,
+        icon: <UserCircleIcon {...icon} />,
         name: "events",
         path: "/events",
         element: <Events />,

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import UserContext from "../../UserContext";
 import { Navigate, Routes, Route } from "react-router-dom";
 import AdminDashboard from "./a-dashboard";
@@ -9,15 +9,28 @@ const AdminPanel = () => {
   const [user] = useContext(UserContext);
 
   // Check if the user is an admin
-  app.get("/api/users", (req, res) => {
-    if (req.user.status !== "1") {
-      return res.status(403).json({ error: "Access denied" });
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch("/api/users");
+        if (!response.ok) {
+          throw new Error("Failed to fetch users");
+        }
+        const data = await response.json();
+        setUsers(data);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+    fetchUsers();
+  }, []);
+
+    // Check if the user is an admin
+    if (!user || user.role !== "1") {
+      return <Navigate to="/auth/login" replace />;
     }
-    // Fetch and return user data
-  });
 
-  return (
-
+ return (
 <div className="p-6 bg-gray-100">
   <h1 className="text-2xl font-bold">Admin Panel</h1>
   <nav className="flex gap-4 mt-4">

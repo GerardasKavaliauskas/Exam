@@ -2,19 +2,13 @@
 
 ## Paleidimas
 
-Vykdome komandą:
-
-```bash
 docker compose up
-```
 
 ## Instaliavimas (pirmą kartą arba po didesnių DB schemo pakeitimų)
 
 Atsidarome naują terminalą ir vykdome komandą:
  
-```bash
 docker-compose exec api sh
-```
 
 Tada rašome komandą:
 
