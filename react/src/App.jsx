@@ -3,7 +3,7 @@ import { Dashboard, Auth, Front } from "@/layouts";
 import UserContext from "@/UserContext";
 import { useEffect, useState } from "react";
 import AdminPanel from "@/pages/admin/AdminPanel";
-import { Events } from "./pages/dashboard";
+import Events from "./pages/dashboard";
 
 function App() {
 
