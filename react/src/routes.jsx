@@ -9,6 +9,7 @@ import {
 import { Home, Profile } from "@/pages/front";
 import { Home as HomeDashboard, Profile as ProfileDashboard, Tables, Notifications, Components } from "@/pages/dashboard";
 import { Login, Register } from "@/pages/auth";
+import { Events } from "@/pages/dashboard/events";
 
 const icon = {
   className: "w-5 h-5 text-inherit",
@@ -65,12 +66,12 @@ export const routes = [
         path: "/notifications",
         element: <Notifications />,
       },
-      // {
-      //   icon: <InformationCircleIcon {...icon} />,
-      //   name: "events",
-      //   path: "/events",
-      //   element: <Events />,
-      // },
+      {
+        icon: <InformationCircleIcon {...icon} />,
+        name: "events",
+        path: "/events",
+        element: <Events />,
+      },
     ],
   },
   {
