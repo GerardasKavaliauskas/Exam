@@ -65,6 +65,12 @@ export const routes = [
         path: "/notifications",
         element: <Notifications />,
       },
+      // {
+      //   icon: <InformationCircleIcon {...icon} />,
+      //   name: "events",
+      //   path: "/events",
+      //   element: <Events />,
+      // },
     ],
   },
   {

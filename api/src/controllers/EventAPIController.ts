@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
 import { body, validationResult, matchedData } from 'express-validator';
-
 import bcrypt from 'bcrypt';
-
 import { Prisma } from '@prisma/client';
 import prismaDb from '../app';
 
